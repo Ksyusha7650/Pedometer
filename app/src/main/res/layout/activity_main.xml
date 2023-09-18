@@ -61,7 +61,7 @@
             app:layout_constraintVertical_bias="0.112" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewBadge5000"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +73,7 @@
             app:srcCompat="@drawable/badge_5000_unavailable_" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageViewBadge10000"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -85,7 +85,7 @@
             app:srcCompat="@drawable/badge_10000_unavailable_" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageViewBadge15000"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +97,7 @@
             app:srcCompat="@drawable/badge_15000_unavailable_" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageViewBadge100"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -109,7 +109,7 @@
             app:srcCompat="@drawable/badge_100" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/imageViewBadge25000"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -121,7 +121,7 @@
             app:srcCompat="@drawable/badge_25000_unavailable_" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageViewBadge20000"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -159,7 +159,7 @@
         app:layout_constraintVertical_bias="0.168">
 
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/progressBarCountSteps"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="113dp"
             android:layout_height="20dp"
@@ -186,13 +186,13 @@
             app:layout_constraintVertical_bias="0.173" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textViewCurrentSteps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_medium"
-            android:text="1340/6000"
+            android:fontFamily="@font/inter_semibold"
+            android:text="1340"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.116"
@@ -212,6 +212,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.326" />
+
+        <TextView
+            android:id="@+id/textViewGoalSteps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="/6000"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewCurrentSteps"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.643" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
