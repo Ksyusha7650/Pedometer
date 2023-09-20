@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_semibold"
             android:text="Статистика"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.077"
@@ -32,6 +32,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.060000002" />
 
+        <org.eazegraph.lib.charts.BarChart
+            android:id="@+id/chart"
+            android:layout_width="265dp"
+            android:layout_height="128dp"
+            android:layout_weight="1"
+            android:padding="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.631"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.709" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -52,7 +64,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_semibold"
             android:text="Достижения"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.077"
