@@ -26,6 +26,7 @@ public class SettingsActivity extends AppCompatActivity {
         updateValues();
     }
 
+    // Метод для связывания элементов пользовательского интерфейса с переменными класса
     private void connectUIElementsToCodeBehind() {
         setContentView(R.layout.activity_settings);
         editTextGoalSteps = findViewById(R.id.editTextGoalCountSteps);
@@ -36,6 +37,7 @@ public class SettingsActivity extends AppCompatActivity {
         buttonEdit = findViewById(R.id.buttonEdit);
     }
 
+    // Метод для обновления значений элементов пользовательского интерфейса
     private void updateValues() {
         editTextGoalSteps.setText(String.valueOf(goalSteps));
         editTextHeight.setText(String.valueOf(height));
@@ -43,7 +45,8 @@ public class SettingsActivity extends AppCompatActivity {
         textViewName.setText(name);
     }
 
-    public void save(View view){
+    // Метод для сохранения настроек
+    public void save(View view) {
         goalSteps = (int) Double.parseDouble(editTextGoalSteps.getText().toString());
         height = Double.parseDouble(editTextHeight.getText().toString());
         weight = Double.parseDouble(editTextWeight.getText().toString());
@@ -61,16 +64,18 @@ public class SettingsActivity extends AppCompatActivity {
         ));
         updateValues();
         buttonEdit.setVisibility(View.VISIBLE);
-
     }
 
-    public void edit(View view){
+    // Метод для редактирования имени пользователя
+    public void edit(View view) {
         buttonEdit.setVisibility(View.INVISIBLE);
         editTextName.setVisibility(View.VISIBLE);
         editTextName.setText(name);
         textViewName.setVisibility(View.INVISIBLE);
     }
-    private void getOptions(){
+
+    // Метод для получения настроек
+    private void getOptions() {
         Options.load();
         goalSteps = Options.options.goalSteps;
         name = Options.options.name;

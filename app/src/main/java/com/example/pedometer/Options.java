@@ -14,17 +14,21 @@ public class Options {
     public static ModelOptions options;
     public static RxDataStore<Preferences> dataStoreRX;
 
-    public Options(Context context){
+    // Конструктор класса
+    public Options(Context context) {
         dataStoreRX = new RxPreferenceDataStoreBuilder(context,"options").build();
     }
-    public static void save(ModelOptions options){
+
+    // Метод для сохранения настроек
+    public static void save(ModelOptions options) {
         putIntValue("GOAL", options.goalSteps);
         putDoubleValue("HEIGHT", options.height);
         putDoubleValue("WEIGHT", options.weight);
         putStringValue("NAME", options.name);
     }
 
-    public static void putStringValue(String Key, String value){
+    // Метод для сохранения значения типа String
+    public static void putStringValue(String Key, String value) {
         Preferences.Key<String> PREF_KEY = PreferencesKeys.stringKey(Key);
         dataStoreRX.updateDataAsync(prefsIn -> {
             MutablePreferences mutablePreferences = prefsIn.toMutablePreferences();
@@ -32,7 +36,9 @@ public class Options {
             return Single.just(mutablePreferences);
         });
     }
-    public static void putIntValue(String Key, int value){
+
+    // Метод для сохранения значения типа int
+    public static void putIntValue(String Key, int value) {
         Preferences.Key<Integer> PREF_KEY = PreferencesKeys.intKey(Key);
         dataStoreRX.updateDataAsync(prefsIn -> {
             MutablePreferences mutablePreferences = prefsIn.toMutablePreferences();
@@ -41,7 +47,8 @@ public class Options {
         });
     }
 
-    public static void putDoubleValue(String Key, double value){
+    // Метод для сохранения значения типа double
+    public static void putDoubleValue(String Key, double value) {
         Preferences.Key<Double> PREF_KEY = PreferencesKeys.doubleKey(Key);
         dataStoreRX.updateDataAsync(prefsIn -> {
             MutablePreferences mutablePreferences = prefsIn.toMutablePreferences();
@@ -50,25 +57,29 @@ public class Options {
         });
     }
 
+    // Метод для получения значения типа String
     static String getStringValue(String Key) {
         Preferences.Key<String> PREF_KEY = PreferencesKeys.stringKey(Key);
         Single<String> value = dataStoreRX.data().firstOrError().map(prefs -> prefs.get(PREF_KEY)).onErrorReturnItem("Машка");
         return value.blockingGet();
     }
 
+    // Метод для получения значения типа int
     static int getIntValue(String Key) {
         Preferences.Key<Integer> PREF_KEY = PreferencesKeys.intKey(Key);
         Single<Integer> value = dataStoreRX.data().firstOrError().map(prefs -> prefs.get(PREF_KEY)).onErrorReturnItem(6000);
         return value.blockingGet();
     }
 
+    // Метод для получения значения типа double
     static Double getDoubleValue(String Key) {
         Preferences.Key<Double> PREF_KEY = PreferencesKeys.doubleKey(Key);
         Single<Double> value = dataStoreRX.data().firstOrError().map(prefs -> prefs.get(PREF_KEY)).onErrorReturnItem(0.0);
         return value.blockingGet();
     }
 
-    public static void load(){
+    // Метод для загрузки настроек
+    public static void load() {
         options = new ModelOptions(
                 getIntValue("GOAL"),
                 getDoubleValue("HEIGHT"),
