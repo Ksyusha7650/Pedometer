@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
@@ -70,11 +71,18 @@ public class MainActivity extends AppCompatActivity {
     // Текущий день недели
     int currentDay; // 1 - Вс, 2 - Пн, 3 - Вт и т.д.
 
+    int orientation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        connectUIElementsToCodeBehind(); // связывает элементы пользовательского интерфейса с переменными класса
+        orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            connectUIElementsToCodeBehindInLandOrientation();
+        } else {
+            connectUIElementsToCodeBehind(); // связывает элементы пользовательского интерфейса с переменными класса
+        }
         addSensor(); // добавляет сенсор и запрашивает разрешение для мониторинга активности
         getOptions(); // загружает настройки из SharedPreferences
         updateValues(); // обновляет значения элементов пользовательского интерфейса
@@ -134,6 +142,14 @@ public class MainActivity extends AppCompatActivity {
         barChart = findViewById(R.id.chart);
     }
 
+    // Метод для связывания элементов пользовательского интерфейса с переменными класса при повороте
+    private void connectUIElementsToCodeBehindInLandOrientation() {
+        textViewCurrentSteps = findViewById(R.id.textViewCurrentSteps);
+        textViewGoalSteps = findViewById(R.id.textViewGoalSteps);
+        textViewPercents = findViewById(R.id.textViewPercents);
+        progressBarCountSteps = findViewById(R.id.progressBarCountSteps);
+    }
+
     // Метод для получения настроек из DataStore
     private void getOptions() {
         Options options = new Options(this);
@@ -181,7 +197,8 @@ public class MainActivity extends AppCompatActivity {
         textViewGoalSteps.setText(String.format("/%d", options.goalSteps)); // Устанавливаем текст с целевым количеством шагов
         textViewCurrentSteps.setText(String.valueOf(currentSteps)); // Устанавливаем текст с текущим количеством шагов
         textViewPercents.setText((double) Math.round(percents * 10000) / 100 + "%"); // Устанавливаем текст с процентом выполнения цели, округленным до двух знаков после запятой
-
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE)
+            return;
         // Устанавливаем значки для заданного количества шагов
         for (int countSteps : countStepsBadges) {
             setBadges(countSteps);
