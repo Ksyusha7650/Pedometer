@@ -3,4 +3,5 @@
     <color name="bg_widget">#56747474</color>
     <color name="progress">#96F02E</color>
     <color name="dark_yellow">#5A4505</color>
+    <color name="Label">#FFFFFF</color>
 </resources>

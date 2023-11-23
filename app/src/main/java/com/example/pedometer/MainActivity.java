@@ -102,27 +102,35 @@ public class MainActivity extends AppCompatActivity {
     // Метод для получения имени дня недели на основе его номера
     private String nameOfDay(int dayOfWeek) {
         switch (dayOfWeek) {
-            case 2: return "Пн";
-            case 3: return "Вт";
-            case 4: return "Ср";
-            case 5: return "Чт";
-            case 6: return "Пт";
-            case 7: return "Сб";
-            case 1: return "Вс";
-            default: return "Неверный день недели";
+            case 2: return getString(R.string.monday);
+            case 3: return getString(R.string.tuesday);
+            case 4: return getString(R.string.wensday);
+            case 5: return getString(R.string.thursday);
+            case 6: return getString(R.string.friday);
+            case 7: return getString(R.string.saturday);
+            case 1: return getString(R.string.sunday);
+            default: return getString(R.string.empty);
         }
+    }
+
+    // Метод для получения имени дня недели на основе его номера
+    private int colorOfBarModel(int countSteps) {
+        if (countSteps > options.goalSteps){
+            return Color.parseColor("#32ade6");
+        }
+        else return Color.parseColor("#00c7be");
     }
 
     // Метод для установки данных на диаграмму для текущего дня
     private void setChart(int today) {
         barChart.clearChart(); // Очищаем диаграмму
-        barChart.addBar(new BarModel(nameOfDay(today + 1), 9367, Color.parseColor("#000000"))); // Добавляем бар для дня, следующего за текущим днем
-        barChart.addBar(new BarModel(nameOfDay(today + 2), 14596, Color.parseColor("#000000"))); // Добавляем бар для дня, через два дня от текущего дня
-        barChart.addBar(new BarModel(nameOfDay(today + 3), 9770, Color.parseColor("#000000"))); // Добавляем бар для дня, через три дня от текущего дня
-        barChart.addBar(new BarModel(nameOfDay(today - 3), 10205, Color.parseColor("#000000"))); // Добавляем бар для дня, через три дня до текущего дня
-        barChart.addBar(new BarModel(nameOfDay(today - 2), 11847, Color.parseColor("#000000"))); // Добавляем бар для дня, через два дня до текущего дня
-        barChart.addBar(new BarModel(nameOfDay(today - 1), 5181, Color.parseColor("#000000"))); // Добавляем бар для дня, предыдущего текущему дню
-        barChart.addBar(new BarModel(nameOfDay(today), currentSteps, Color.parseColor("#FFFFFF"))); // Добавляем бар для текущего дня с текущим количеством шагов
+        barChart.addBar(new BarModel(nameOfDay(today + 1), 9367, colorOfBarModel(9367))); // Добавляем бар для дня, следующего за текущим днем
+        barChart.addBar(new BarModel(nameOfDay(today + 2), 14596, colorOfBarModel(14596))); // Добавляем бар для дня, через два дня от текущего дня
+        barChart.addBar(new BarModel(nameOfDay(today + 3), 9770, colorOfBarModel(9770))); // Добавляем бар для дня, через три дня от текущего дня
+        barChart.addBar(new BarModel(nameOfDay(today - 3), 10205, colorOfBarModel(10205))); // Добавляем бар для дня, через три дня до текущего дня
+        barChart.addBar(new BarModel(nameOfDay(today - 2), 11847, colorOfBarModel(11847))); // Добавляем бар для дня, через два дня до текущего дня
+        barChart.addBar(new BarModel(nameOfDay(today - 1), 5181, colorOfBarModel(5181))); // Добавляем бар для дня, предыдущего текущему дню
+        barChart.addBar(new BarModel(nameOfDay(today), currentSteps, Color.parseColor(getString(R.string.white)))); // Добавляем бар для текущего дня с текущим количеством шагов
     }
 
     // Метод для связывания элементов пользовательского интерфейса с переменными класса

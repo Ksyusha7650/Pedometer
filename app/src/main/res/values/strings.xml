@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">Шаги</string>
+    <string name="steps">Шаги</string>
+    <string name="sensors">Датчики</string>
+    <string name="achievements">Достижения</string>
+    <string name="Statistics">Статистика</string>
+    <string name="your_activity">Твоя активность</string>
+    <string name="goal">Цель:</string>
+    <string name="sex">Пол:</string>
+    <string name="female">жен</string>
+    <string name="male">муж</string>
+    <string name="height">Рост:</string>
+    <string name="weight">Вес:</string>
+    <string name="sm">см</string>
+    <string name="kg">кг</string>
+    <string name="res_steps">шагов</string>
+    <string name="save">Сохранить</string>
+    <string name="edit">Изменить</string>
+    <string name="list_sensors">Список датчиков</string>
+    <string name="sunday">Вс</string>
+    <string name="saturday">Сб</string>
+    <string name="friday">Пт</string>
+    <string name="thursday">Чт</string>
+    <string name="wensday">Ср</string>
+    <string name="tuesday">Вт</string>
+    <string name="monday">Пн</string>
+    <string name="empty" />
+    <string name="white">#FFFFFF</string>
 </resources>

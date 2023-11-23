@@ -6,4 +6,5 @@
     <color name="progress">#96F02E</color>
     <color name="unavaiable_achievment">#0D525252</color>
     <color name="dark_yellow">#5A4505</color>
+    <color name="Label">#000000</color>
 </resources>
