@@ -124,12 +124,12 @@ public class MainActivity extends AppCompatActivity {
     // Метод для установки данных на диаграмму для текущего дня
     private void setChart(int today) {
         barChart.clearChart(); // Очищаем диаграмму
-        barChart.addBar(new BarModel(nameOfDay(today + 1), 9367, colorOfBarModel(9367))); // Добавляем бар для дня, следующего за текущим днем
-        barChart.addBar(new BarModel(nameOfDay(today + 2), 14596, colorOfBarModel(14596))); // Добавляем бар для дня, через два дня от текущего дня
-        barChart.addBar(new BarModel(nameOfDay(today + 3), 9770, colorOfBarModel(9770))); // Добавляем бар для дня, через три дня от текущего дня
-        barChart.addBar(new BarModel(nameOfDay(today - 3), 10205, colorOfBarModel(10205))); // Добавляем бар для дня, через три дня до текущего дня
-        barChart.addBar(new BarModel(nameOfDay(today - 2), 11847, colorOfBarModel(11847))); // Добавляем бар для дня, через два дня до текущего дня
-        barChart.addBar(new BarModel(nameOfDay(today - 1), 5181, colorOfBarModel(5181))); // Добавляем бар для дня, предыдущего текущему дню
+        barChart.addBar(new BarModel(nameOfDay(today + 1), options.countSteps1, colorOfBarModel(options.countSteps1))); // Добавляем бар для дня, следующего за текущим днем
+        barChart.addBar(new BarModel(nameOfDay(today + 2), options.countSteps2, colorOfBarModel(options.countSteps2))); // Добавляем бар для дня, через два дня от текущего дня
+        barChart.addBar(new BarModel(nameOfDay(today + 3), options.countSteps3, colorOfBarModel(options.countSteps3))); // Добавляем бар для дня, через три дня от текущего дня
+        barChart.addBar(new BarModel(nameOfDay(today - 3), options.countSteps4, colorOfBarModel(options.countSteps4))); // Добавляем бар для дня, через три дня до текущего дня
+        barChart.addBar(new BarModel(nameOfDay(today - 2), options.countSteps5, colorOfBarModel(options.countSteps5))); // Добавляем бар для дня, через два дня до текущего дня
+        barChart.addBar(new BarModel(nameOfDay(today - 1), options.countSteps6, colorOfBarModel(options.countSteps6))); // Добавляем бар для дня, предыдущего текущему дню
         barChart.addBar(new BarModel(nameOfDay(today), currentSteps, Color.parseColor(getString(R.string.white)))); // Добавляем бар для текущего дня с текущим количеством шагов
     }
 

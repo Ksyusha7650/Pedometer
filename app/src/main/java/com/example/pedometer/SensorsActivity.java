@@ -27,11 +27,11 @@ public class SensorsActivity extends AppCompatActivity {
         StringBuilder sb = new StringBuilder();
         for (Sensor sensor : sensors) {
             // Создаем строку с информацией о каждом сенсоре
-            sb.append("Имя = ").append(sensor.getName()) // Имя сенсора
-                    .append("\nТип = ").append(sensor.getType()) // Тип сенсора
-                    .append("\nПроизводитель = ").append(sensor.getVendor()) // Производитель
-                    .append("\nМаксимальное значение = ").append(sensor.getMaximumRange()) // Максимальное значение
-                    .append("\nРазрешение = ").append(sensor.getResolution()) // Разрешение
+            sb.append(getString(R.string.nameSensor)).append(sensor.getName()) // Имя сенсора
+                    .append(getString(R.string.type)).append(sensor.getType()) // Тип сенсора
+                    .append(getString(R.string.maufacturer)).append(sensor.getVendor()) // Производитель
+                    .append(getString(R.string.maxValue)).append(sensor.getMaximumRange()) // Максимальное значение
+                    .append(getString(R.string.Resolution)).append(sensor.getResolution()) // Разрешение
                     .append("\n--------------------------------------\n");
         }
         textViewSensors.setText(sb); // Устанавливаем текст с информацией о сенсорах в TextView

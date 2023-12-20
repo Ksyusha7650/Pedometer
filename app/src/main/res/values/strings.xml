@@ -26,4 +26,9 @@
     <string name="monday">Пн</string>
     <string name="empty" />
     <string name="white">#FFFFFF</string>
+    <string name="maufacturer">"\nПроизводитель = "</string>
+    <string name="type">"\nТип = "</string>
+    <string name="nameSensor">"Имя = "</string>
+    <string name="maxValue">"\nМаксимальное значение = "</string>
+    <string name="Resolution">"\nРазрешение = "</string>
 </resources>

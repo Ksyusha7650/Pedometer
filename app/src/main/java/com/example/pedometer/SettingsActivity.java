@@ -56,12 +56,12 @@ public class SettingsActivity extends AppCompatActivity {
             name = textViewName.getText().toString();
         editTextName.setVisibility(View.INVISIBLE);
         textViewName.setVisibility(View.VISIBLE);
-        Options.save(new ModelOptions(
+       /* Options.save(new ModelOptions(
                 goalSteps,
                 height,
                 weight,
                 name
-        ));
+        )); */
         updateValues();
         buttonEdit.setVisibility(View.VISIBLE);
     }

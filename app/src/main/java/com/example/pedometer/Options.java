@@ -27,6 +27,16 @@ public class Options {
         putStringValue("NAME", options.name);
     }
 
+    // Метод для сохранения настроек шагов
+    public static void saveCountSteps(ModelOptions options) {
+       putIntValue("1DAY", options.countSteps1);
+        putIntValue("2DAY", options.countSteps2);
+        putIntValue("3DAY", options.countSteps3);
+        putIntValue("4DAY", options.countSteps4);
+        putIntValue("5DAY", options.countSteps5);
+        putIntValue("6DAY", options.countSteps6);
+    }
+
     // Метод для сохранения значения типа String
     public static void putStringValue(String Key, String value) {
         Preferences.Key<String> PREF_KEY = PreferencesKeys.stringKey(Key);
@@ -84,7 +94,13 @@ public class Options {
                 getIntValue("GOAL"),
                 getDoubleValue("HEIGHT"),
                 getDoubleValue("WEIGHT"),
-                getStringValue("NAME")
+                getStringValue("NAME"),
+                getIntValue("1DAY"),
+                getIntValue("2DAY"),
+                getIntValue("3DAY"),
+                getIntValue("4DAY"),
+                getIntValue("5DAY"),
+                getIntValue("6DAY")
         );
     }
 }
